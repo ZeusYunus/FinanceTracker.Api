@@ -1,5 +1,6 @@
 
 using FinanceTracker.Api.Data;
+using FinanceTracker.Api.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
@@ -17,6 +18,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services
     .AddIdentityApiEndpoints<IdentityUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddScoped<IReportRepository, ReportRepository>();
 
 builder.Services.AddAuthorization();
 
